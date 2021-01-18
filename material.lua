@@ -315,13 +315,9 @@ local function GetXY(GuiObject)
 	return Px/Max, Py/May
 end
 
-local function round(a, b) 
-	b = b or 1
-	local c = math.floor(a / b + (math.sign(a) * 0.5)) * b
-	if c > 0 then
-		c = c + 1
-	end
-	return c
+local function round(exact, quantum)
+    local quant,frac = math.modf(exact/quantum)
+    return quantum * (quant + (frac > 0.5 and 1 or 0))
 end
 
 local function CircleAnim(GuiObject, EndColour, StartColour)
@@ -2353,7 +2349,7 @@ function Material.Load(Config)
 				MouseMove = Mouse.Move:Connect(function()
 					local Px = GetXY(SliderTracker)
 					local SizeFromScale = (MinSize +  (MaxSize - MinSize)) * Px
-					local Value = round(SliderMin + ((SliderMax - SliderMin) * Px),SliderConfig.Float) - 1 
+					local Value = round(SliderMin + ((SliderMax - SliderMin) * Px),SliderConfig.Float)
 					SizeFromScale = SizeFromScale - (SizeFromScale % 2)
 					TweenService:Create(SliderDot, TweenInfo.new(0.15), {Position = UDim2.fromScale(Px,0.5) - UDim2.fromOffset(5,5)}):Play()
 					TweenService:Create(SliderFill, TweenInfo.new(0.15), {Size = UDim2.fromScale(Px, 1)}):Play()
