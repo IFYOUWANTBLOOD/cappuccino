@@ -2128,9 +2128,9 @@ function Material.Load(Config)
 			end
 
 			function ToggleLibrary:SetState(Value,callback)
+				ToggleDefault = Value
 				TweenService:Create(Dot, TweenInfo.new(0.15), {Position = (ToggleDefault and UDim2.fromScale(1,0.5) or UDim2.fromScale(0,0.5)) - UDim2.fromOffset(8,8), ImageColor3 = ToggleDefault and Theme.Toggle or Theme.ToggleAccent}):Play()
-				if Callback then
-				    ToggleDefault = Value
+				if callback then
 				    ToggleCallback(ToggleDefault)
 				end
 			end
