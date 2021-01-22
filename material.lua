@@ -2226,7 +2226,7 @@ function Material.Load(Config)
 		end
 		
 		function OptionLibrary.Label(LabelConfig)
-			local LabelText = LabelConfig.Text or "nil label"
+			local LabelText = tostring(LabelConfig.Text)
 			
 			local LabelContainer = Objects.new("Round")
 			LabelContainer.Name = "Label"
@@ -2236,7 +2236,7 @@ function Material.Load(Config)
 			
 			local LabelContent = Objects.new("Label")
 			LabelContent.TextColor3 = Theme.ChipSet
-			LabelContent.Text = LabelText:upper()
+			LabelContent.Text = LabelText
 			LabelContent.TextSize = 12
 			LabelContent.Font = Enum.Font.GothamSemibold
 			LabelContent.Size = UDim2.fromScale(1,1) + UDim2.fromOffset(-5,0)
