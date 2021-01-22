@@ -2245,8 +2245,8 @@ function Material.Load(Config)
 			
 			local LabelOptions = {}
 			
-			function LabelOptions.SetText(Text)
-				LabelContent.Text = Text
+			function LabelOptions.SetText(newText)
+				LabelContent.Text = tostring(newText)
 			end
 			
 			return LabelOptions
