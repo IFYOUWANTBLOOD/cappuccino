@@ -705,7 +705,7 @@ function CreateNewButton(ButtonConfig, Parent)
 	return Button, ButtonLabel
 end
 
-local TargetParent = RunService:IsStudio() and Player.PlayerGui or CoreGuiService
+local TargetParent = CoreGuiService
 
 function Material.Load(Config)
 	local Style = (Config.Style and math.clamp(Config.Style, 1, 3)) or 1
