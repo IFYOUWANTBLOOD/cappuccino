@@ -1,0 +1,11 @@
+library {
+	.Load(<string title>) {
+	    .AddPage(<string> title, <bool> searchBar) {
+		    .AddButton(<string> text, <function> callback)
+		    .AddToggle(<string> text, <bool> enabled, <function> callback)
+		    .AddSlider(<string> text, <table: [Min = <number>, Max = <number> Def = <number>]> configuration, <function> callback)
+		    .AddColourPicker(<string> text, <variant [string/table/color3]> defaultColor, <function> callback)
+		    .AddDropdown(<string> text, <table> options, <function> callback)
+	    }
+	}
+}
