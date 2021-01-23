@@ -1,22 +1,3 @@
---[[
-EXAMPLE:
-local XanaxUILib = loadstring(game:HttpGet("https://pastebin.com/raw/XZz3Ytbu"))()
-local Ui = XanaxUILib:CreateWindow("Example UI")
-local Info = Ui:CreateSection("Info")
-local ExampleSection = Ui:CreateSection("Example")
-
-Info:CreateLabel("Made by yeetus#3635")
-Info:CreateLabel("This is a UI Library example")
-Info:CreateButton("Destroy UI", function() XanaxUILib.functions:DestroyGUI() end)
-
-ExampleSection:CreateLabel("This is label")
-ExampleSection:CreateButton("This is button", function() print("This is function") end)
-ExampleSection:CreateToggle("This is toggle", "This is flag", function(Toggled) print("This is optional argument", Toggled) end)
-ExampleSection:CreateSlider("This is walkspeed slider", "WalkSpeed", 16, 100, false, function(ws)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
-end)
-]]--
-
 local XanaxUILib = {}
 
 XanaxUILib.flags = {}
