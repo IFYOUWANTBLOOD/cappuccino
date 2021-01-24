@@ -1,0 +1,15 @@
+library {
+    .new {
+        :Page(<string> title) {
+            :Section(<string> title) {
+                :Button(<table [text, callback]> information)
+                :Toggle(<table [text, state, callback]> information)
+                :Textbox(<table [text, value, callback]> information)
+                :Bind(<table [text, key, callback]> information)
+                :Slider(<table [text, min, max, value, callback]> information)
+                :Dropdown(<table [text, values, value, callback]> information)
+                :ColorPicker(<table [text, color(table/color3), callback]> information 
+            }
+        }
+    }
+}
