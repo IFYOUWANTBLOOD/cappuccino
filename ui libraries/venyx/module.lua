@@ -13,7 +13,7 @@ local utility = {}
 
 -- themes
 local objects = {}
-local themes = getgenv().theme or {
+local themes = {
 	Background = Color3.fromRGB(24, 24, 24), 
 	Glow = Color3.fromRGB(0, 0, 0), 
 	Accent = Color3.fromRGB(10, 10, 10), 
@@ -779,7 +779,17 @@ do
             end)
 		end)
 		
-		return toggle
+		local toggleLibrary = {
+			Set = function(s,c)
+				active = s
+				self:updateToggle(toggle, nil, active)
+
+				if c then
+					toggleInfo.callback(s)
+				end
+			end
+		}
+		return toggleLibrary
 	end
 	
     function section:Textbox(boxInfo)
@@ -2155,4 +2165,3 @@ do
 		end
 	end
 end
-return library
