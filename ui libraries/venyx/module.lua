@@ -1651,7 +1651,7 @@ do
 			end
 		end
 		
-		self:updateSlider(slider, nil, round(value,sliderInfo.float), sliderInfo.min, sliderInfo.max)
+		self:updateSlider(slider, nil, value, sliderInfo.min, sliderInfo.max)
 		
 		utility:DraggingEnded(function()
 			dragging = false
@@ -1663,7 +1663,7 @@ do
 			while dragging do
 				utility:Tween(circle, {ImageTransparency = 0}, 0.1)
 				
-				value = self:updateSlider(slider, nil, nil, sliderInfo.min, sliderInfo.max, round(value,sliderInfo.float))
+				value = self:updateSlider(slider, nil, nil, sliderInfo.min, sliderInfo.max, value)
 				sliderInfo.callback(value)
 				
 				utility:Wait()
