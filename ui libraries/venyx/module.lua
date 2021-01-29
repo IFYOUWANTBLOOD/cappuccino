@@ -945,7 +945,7 @@ do
 					Size = UDim2.new(1, 0, 1, 0),
 					ZIndex = 3,
 					Font = Enum.Font.GothamSemibold,
-					Text = bindInfo.key and bindInfo.Name or "None",
+					Text = bindInfo.key and bindInfo.key.Name or "None",
 					TextColor3 = themes.TextColor,
 					TextSize = 11
 				})
@@ -972,8 +972,8 @@ do
             end)
 		end}
 		
-		if default and callback then
-			self:updateKeybind(keybind, nil, default)
+		if bindInfo.key then
+			self:updateKeybind(keybind, nil, bindInfo.key)
 		end
 		
 		keybind.MouseButton1Click:Connect(function()
@@ -1077,7 +1077,7 @@ do
 				Size = UDim2.new(1, -40, 0, 16),
 				ZIndex = 2,
 				Font = Enum.Font.GothamSemibold,
-				Text = title,
+				Text = pickerInfo.text,
 				TextColor3 = themes.TextColor,
 				TextSize = 14,
 				TextXAlignment = Enum.TextXAlignment.Left
@@ -1351,15 +1351,13 @@ do
 			draggingColor, draggingCanvas = false, false
 		end)
 		
-		if default then
-			self:updateColorPicker(colorpicker, nil, default)
-			
-			hue, sat, brightness = Color3.toHSV(default)
-			default = Color3.fromHSV(hue, sat, brightness)
-			
-			for i, prop in pairs({"r", "g", "b"}) do
-				rgb[prop] = default[prop:upper()] * 255
-			end
+		self:updateColorPicker(colorpicker, nil, pickerInfo.color)
+		
+		hue, sat, brightness = Color3.toHSV(pickerInfo.color)
+		pickerInfo.color = Color3.fromHSV(hue, sat, brightness)
+		
+		for i, prop in pairs({"r", "g", "b"}) do
+			rgb[prop] = pickerInfo.color[prop:upper()] * 255
 		end
 		
 		for i, container in pairs(tab.Container.Inputs:GetChildren()) do -- i know what you are about to say, so shut up
