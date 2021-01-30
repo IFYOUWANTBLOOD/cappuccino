@@ -1340,11 +1340,9 @@ do
 		}
 		
 		local callback = function(value)
-			if callback then
-				callback(value, function(...)
-					self:updateColorPicker(colorpicker, ...)
-				end)
-			end
+			pickerInfo.callback(value, function(...)
+				self:updateColorPicker(colorpicker, ...)
+			end)
 		end
 		
 		utility:DraggingEnded(function()
