@@ -744,7 +744,7 @@ do
 
 		function t:SetText(str)
 			str = tostring(str)
-			main.TextLabel.Text = str
+			main.Title.Text = str
 		end
 
 		return t
