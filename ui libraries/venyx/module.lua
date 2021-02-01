@@ -18,7 +18,8 @@ local themes = {
 	Glow = Color3.fromRGB(0, 0, 0), 
 	Accent = Color3.fromRGB(10, 10, 10), 
 	LightContrast = Color3.fromRGB(20, 20, 20), 
-	DarkContrast = Color3.fromRGB(14, 14, 14),  
+	DarkContrast = Color3.fromRGB(14, 14, 14),
+	DarkerContrast = Color3.fromRGB(8,8,8),
 	TextColor = Color3.fromRGB(255, 255, 255)
 }
 
@@ -706,6 +707,47 @@ do
 		end)
 		
 		return button
+	end
+
+	function section:Label(labelInfo)
+		labelInfo.text = tostring(labelInfo.text)
+		local main = utility:Create("ImageButton", {
+			Name = "Label",
+			Parent = self.container,
+			BackgroundTransparency = 1,
+			BorderSizePixel = 0,
+			Size = UDim2.new(1, 0, 0, 30),
+			ZIndex = 2,
+			Image = "rbxassetid://5028857472",
+			ImageColor3 = themes.DarkerContrast,
+			ScaleType = Enum.ScaleType.Slice,
+			SliceCenter = Rect.new(2, 2, 298, 298)
+		}, {
+			utility:Create("TextLabel", {
+				Name = "Title",
+				BackgroundTransparency = 1,
+				Size = UDim2.new(1, -10, 1, 0),
+				Position = UDim2.new(0,10,0,0),
+				ZIndex = 3,
+				Font = Enum.Font.Gotham,
+				Text = labelInfo.text,
+				TextColor3 = themes.TextColor,
+				TextSize = 12,
+				TextTransparency = 0.10000000149012,
+				TextXAlignment = Enum.TextXAlignment.Left
+			})
+		})
+
+		table.insert(self.modules, main)
+
+		local t = {}
+
+		function t:SetText(str)
+			str = tostring(str)
+			main.TextLabel.Text = str
+		end
+
+		return t
 	end
 	
     function section:Toggle(toggleInfo)
