@@ -1,4 +1,36 @@
-[!] this is a test update
+[!] new UI
+[!] new key UI with much more features than ever
+[!] from now on cappuccino source code will be minified, meaning it will have better performance
+[+] added time counter - now you will know how much time you spend using cappuccino
 
-testing update:
-    for cappuccino v3
+esp update:
+    [!] tracer hit position now depends on boxes
+
+temporary/permanently removed games:
+    vehicle tycoon
+    the rake
+    murder mystery 2
+    freeze tag
+    blox hunt
+    deathrun
+    scp 3008
+    wayfort
+    word bomb
+    arcade empire
+
+game updates:
+    iron man simulator 1:
+        [!] full rewrite
+
+    build a boat for treasure:
+        [!] autofarm bug fixes
+        [!] fixed remove map obstacles
+
+    car crushers 2:
+        [+] added god mode
+        [-] removed core control
+        [!] updated anti report
+
+    destruction simulator:
+        [-] removed gun mods, they were useless considering shift explode existance 
+        [!] made better autofarm
