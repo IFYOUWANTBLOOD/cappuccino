@@ -5,7 +5,7 @@
     local notification = loadstring(game:HttpGet('https://raw.githubusercontent.com/boop71/cappuccino/main/v3/notification.lua'))()
     notification({
         Title = 'Cappuccino',
-        Text = 'cool notification',
+        Text = 'very cool notification for gaming',
         Image = 'rbxassetid://6353325673',    --optional
         Options = {                           --optional 
             'Yes',
