@@ -128,8 +128,9 @@ function notify(t)
         notifyFrame:Destroy()
     end
 
+    local realSize = (t.Image and textSize.X + 90 or textSize.X + 26)
     local body = instance('Frame',{
-        Size = udim2(0,t.Image and textSize.X + 90 or textSize.X + 26,0,70),
+        Size = udim2(0,realSize > 150 and realSize or 150,0,70),
         Position = udim2(0,5,0,5),
         BackgroundColor3 = rgb(23,23,23),
         Parent = notifyFrame
@@ -291,4 +292,5 @@ function notify(t)
         Size = udim2(0,2000,0,80)
     })
 end
+
 return notify
